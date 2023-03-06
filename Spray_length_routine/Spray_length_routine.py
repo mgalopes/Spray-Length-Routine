@@ -7,10 +7,11 @@ Created on Wed Nov 30 18:16:25 2022
 
 import cv2
 
-path1 = 'regua_teste.jpg'
+path1 = 'Image_calibracao.tif'
 img1 = cv2.imread(path1)
-path2 = 'spray_02466_pos1_30bar.jpg'
+path2 = 'Image.6tla7g5f.000061.tif'
 img2 = cv2.imread(path2)
+ret,thresh = cv2.threshold(img2,3.85,255,cv2.THRESH_BINARY)
 
 # iterating till the range
 for i in range(0, 1):  # coordenadas em x e y de referencia
@@ -25,7 +26,7 @@ class DrawLineWidget(object):
         self.i=1
         self.d_pxx=10
         self.d_pxy=15
-        self.original_image2 = cv2.imread(path2)
+        self.original_image2 = thresh
         self.clone2 = self.original_image2.copy()
 
         cv2.namedWindow('image')
