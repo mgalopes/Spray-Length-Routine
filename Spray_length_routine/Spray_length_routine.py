@@ -57,17 +57,17 @@ class DrawLineWidget(object):
                 f = (self.image_coordinates[0][1])
                 g = (self.image_coordinates[1][0])
                 h = (self.image_coordinates[1][1])
-                self.d_pxx = elex / (e - g)
-                self.d_pxy = eley / (f - h)
+                self.d_pxx = elex / (g-e)
+                self.d_pxy = eley / (h-f)
                 print(self.d_pxx)
                 print(self.d_pxy)
                 self.i = 2
             else:
                 cv2.line(self.clone2, self.image_coordinates[0], self.image_coordinates[1], (36, 255, 12), 2)
                 cv2.imshow("image", self.clone2)
-                print((self.image_coordinates[0][0] - self.image_coordinates[1][0]) * self.d_pxx)
-                print((self.image_coordinates[1][0] - self.image_coordinates[1][1]) * self.d_pxy)
-
+                print('Distancia em x:',((self.image_coordinates[0][0] - self.image_coordinates[1][0]) * self.d_pxx),'mm')
+                print('Distancia em y:',((self.image_coordinates[0][1] - self.image_coordinates[1][1])),'mm')
+                print('Distancia total:',((((self.image_coordinates[0][0] - self.image_coordinates[1][0]) * self.d_pxx)**2+((self.image_coordinates[0][1] - self.image_coordinates[1][1]) * self.d_pxy)**2)**(0.5)),'mm')
 
         elif event == cv2.EVENT_RBUTTONDOWN:
             self.clone1 = self.original_image.copy()
