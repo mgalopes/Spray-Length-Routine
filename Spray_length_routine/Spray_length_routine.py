@@ -7,11 +7,11 @@ Created on Wed Nov 30 18:16:25 2022
 
 import cv2
 
-path1 = 'Spray_length_routine/Image_calibracao.tif'
+path1 = 'Spray_length_routine/UHPDI/inferior(2).tif'
 img1 = cv2.imread(path1)
-path2 = 'Spray_length_routine/Image.6tla7g5f.000061.tif'
+path2 = 'Spray_length_routine/UHPDI/Img000747.tif'
 img2 = cv2.imread(path2)
-ret,thresh = cv2.threshold(img2,3.85,255,cv2.THRESH_BINARY)
+ret,thresh = cv2.threshold(img2,8,255,cv2.THRESH_BINARY)
 
 # iterating till the range
 for i in range(0, 1):  # coordenadas em x e y de referencia
