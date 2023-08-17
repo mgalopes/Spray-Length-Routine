@@ -9,9 +9,9 @@ import cv2
 
 path1 = 'Spray_length_routine/UHPDI/inferior(2).tif'
 img1 = cv2.imread(path1)
-path2 = 'Spray_length_routine/UHPDI/Img000747.tif'
+path2 = 'Spray_length_routine/UHPDI/subtracted_images/subtracted_image12.png'
 img2 = cv2.imread(path2)
-ret,thresh = cv2.threshold(img2,8,255,cv2.THRESH_BINARY)
+ret,thresh = cv2.threshold(img2,25,255,cv2.THRESH_BINARY)
 
 # iterating till the range
 for i in range(0, 1):  # coordenadas em x e y de referencia
