@@ -7,11 +7,11 @@ Created on Wed Nov 30 18:16:25 2022
 
 import cv2
 
-path1 = 'Spray_length_routine/UHPDI/inferior(2).tif'
+path1 = 'target_326.png'
 img1 = cv2.imread(path1)
-path2 = 'Spray_length_routine/UHPDI/subtracted_images/subtracted_image12.png'
+path2 = 'Img000005.tif'
 img2 = cv2.imread(path2)
-ret,thresh = cv2.threshold(img2,25,255,cv2.THRESH_BINARY)
+ret,thresh = cv2.threshold(img2,55,255,cv2.THRESH_BINARY)
 
 # iterating till the range
 for i in range(0, 1):  # coordenadas em x e y de referencia
@@ -66,7 +66,7 @@ class DrawLineWidget(object):
                 cv2.line(self.clone2, self.image_coordinates[0], self.image_coordinates[1], (36, 255, 12), 2)
                 cv2.imshow("image", self.clone2)
                 print('Distancia em x:',((self.image_coordinates[0][0] - self.image_coordinates[1][0]) * self.d_pxx),'mm')
-                print('Distancia em y:',((self.image_coordinates[0][1] - self.image_coordinates[1][1])),'mm')
+                print('Distancia em y:',((self.image_coordinates[0][1] - self.image_coordinates[1][1]))*self.d_pxy,'mm')
                 print('Distancia total:',((((self.image_coordinates[0][0] - self.image_coordinates[1][0]) * self.d_pxx)**2+((self.image_coordinates[0][1] - self.image_coordinates[1][1]) * self.d_pxy)**2)**(0.5)),'mm')
 
         elif event == cv2.EVENT_RBUTTONDOWN:
