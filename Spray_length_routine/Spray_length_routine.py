@@ -7,7 +7,7 @@ Created on Wed Nov 30 18:16:25 2022
 
 import cv2
 
-path1 = 'target_326.png'
+path1 = 'agua_destilada_target.png'
 img1 = cv2.imread(path1)
 path2 = 'Img000005.tif'
 img2 = cv2.imread(path2)
